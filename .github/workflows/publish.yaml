@@ -1,5 +1,6 @@
 name: publish
 on:
+  pull_request:
   push:
     branches:
     - main
@@ -11,7 +12,8 @@ jobs:
      - uses: pre-commit/action@v3.0.0
      - uses: devcontainers/action@v1
        with:
+         base-path-to-features: ./src
          features-namespace: ferronn-dev/features
-         publish-features: "true"
+         publish-features: "${{ github.ref == 'refs/heads/main' }}"
        env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
