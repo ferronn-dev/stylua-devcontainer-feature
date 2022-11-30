@@ -1,0 +1,11 @@
+{
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers-contrib/features/pre-commit:1": {}
+	},
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+	"name": "ferronn-dev/stylua-devcontainer-feature",
+	"postCreateCommand": "pre-commit install && npm install -g @devcontainers/cli",
+	"remoteUser": "node"
+}

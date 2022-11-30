@@ -1,0 +1,17 @@
+name: publish
+on:
+  push:
+    branches:
+    - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v3
+     - uses: pre-commit/action@v3.0.0
+     - uses: devcontainers/action@v1
+       with:
+         features-namespace: ferronn-dev/features
+         publish-features: "true"
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
